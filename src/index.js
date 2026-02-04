@@ -122,6 +122,9 @@ function create() {
 /***********************************************************************/
 
 function update() {
+  if (player.body.touching.down) {
+  nbSauts = 0;
+}
   if (clavier.right.isDown) {
     player.setVelocityX(160);
     player.anims.play('anim_tourne_droite', true);
@@ -133,9 +136,10 @@ function update() {
     player.setVelocityX(0);
     player.anims.play('anim_face');
   }
-  if (clavier.space.isDown && player.body.touching.down) {
-    player.setVelocityY(-330);
-  }
+  if (Phaser.Input.Keyboard.JustDown(clavier.space) && nbSauts < SAUT_MAX) {
+  player.setVelocityY(-330);
+  nbSauts++;
+}
   if (gameOver) {
  return;
  }
@@ -190,3 +194,6 @@ function chocAvecBombe(un_player, une_bombe) {
  player.anims.play("anim_face");
  gameOver = true;
 }
+
+var nbSauts = 0;
+var SAUT_MAX = 2; 
