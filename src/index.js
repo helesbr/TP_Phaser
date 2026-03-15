@@ -162,7 +162,12 @@ var groupe_plateformes;
 var player; // désigne le sprite du joueur
 var clavier;
 var groupe_etoiles; // contient tous les sprite etoiles
-
+var score = 0;
+var zone_texte_score;
+var groupe_bombes;
+var gameOver = false;
+var nbSauts = 0;
+var SAUT_MAX = 2; 
 
 function ramasserEtoile(un_player, une_etoile) {
   // on désactive le "corps physique" de l'étoile mais aussi sa texture
@@ -194,19 +199,9 @@ function ramasserEtoile(un_player, une_etoile) {
  une_bombe.setVelocity(Phaser.Math.Between(-200, 200), 20);
  une_bombe.allowGravity = false;
  }
-
-
-var score = 0;
-var zone_texte_score;
-var groupe_bombes;
-var gameOver = false;
-
 function chocAvecBombe(un_player, une_bombe) {
  this.physics.pause();
  player.setTint(0xff0000);
  player.anims.play("anim_face");
  gameOver = true;
 }
-
-var nbSauts = 0;
-var SAUT_MAX = 2; 
