@@ -7,19 +7,7 @@ export default class niveau3 extends Phaser.Scene {
             key: "niveau3" //  ici on précise le nom de la classe en tant qu'identifiant
         });
     }
-    preload() {
-        // chargement tuiles de jeu
-        this.load.image("Phaser_tuilesdejeu", "src/assets/tuilesJeu.png");
-        // chargement de la carte
-        this.load.tilemapTiledJSON("carte", "src/assets/map.tmj");
-        this.load.spritesheet("img_perso", "src/assets/dude.png", {
-            frameWidth: 32,
-            frameHeight: 48
-        });
-        this.load.image('img_porte1', 'src/assets/door1.png');
-        this.load.image('img_porte2', 'src/assets/door2.png');
-        this.load.image('img_porte3', 'src/assets/door3.png');
-    }
+    preload() {}
 
     create() {
         const carteDuNiveau = this.add.tilemap("carte");
