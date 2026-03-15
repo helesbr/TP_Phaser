@@ -156,7 +156,7 @@ function update() {
 }
 
 var groupe_plateformes;
-var player; // désigne le sprite du joueur
+var player; 
 var clavier;
 var score = 0;
 var gameOver = false;
