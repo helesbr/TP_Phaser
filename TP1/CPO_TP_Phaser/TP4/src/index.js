@@ -1,0 +1,24 @@
+import selection from "./js/selection.js";
+import niveau1 from "./js/niveau1.js";
+import niveau2 from "./js/niveau2.js";
+import niveau3 from "./js/niveau3.js";
+// configuration générale du jeu
+var config = {
+  type: Phaser.AUTO,
+  width: 800, // largeur en pixels
+  height: 600, // hauteur en pixels
+  physics: {
+    // définition des parametres physiques
+    default: "arcade", // mode arcade : le plus simple : des rectangles pour gérer les collisions. Pas de pentes
+    arcade: {
+      // parametres du mode arcade
+      gravity: {
+        y: 300 // gravité verticale : acceleration ddes corps en pixels par seconde
+      },
+      debug: false // permet de voir les hitbox et les vecteurs d'acceleration quand mis à true
+    }
+  },
+  scene: [selection, niveau1, niveau2, niveau3] // liste des scenes du jeu, la première de la liste est celle qui est lancée au démarrage du jeu
+};
+var game = new Phaser.Game(config);
+game.scene.start("selection"); 
