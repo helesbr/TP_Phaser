@@ -89,7 +89,6 @@ function create() {
   );
 
   calque_plateforme.setCollisionByProperty({ estSolide: true });
-  player.setCollideWorldBounds(true);
   player = this.physics.add.sprite(100, 450, "img_perso");
   player.setBounce(0.2);
 
